@@ -2,7 +2,7 @@ const colors = [ 0xFF0000, 0x00FF00, 0x0000FF, 0xFF6347, 0x228B22, 0x1E90FF,
  0xDDDDDD, 0x000000, 0x993300, 0x33cc33, 0x009933, 0x993333, 0x4C4E4F, 0xA9A9A9, 0x7F7E7E ];
  
 const scene = new THREE.Scene();
-scene.background = new THREE.Color( 0x000000 );
+//scene.background = new THREE.Color( 0x000000 );
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
 camera.position.z = 36;
 
@@ -14,6 +14,13 @@ document.getElementsByTagName('body')[0].appendChild( renderer.domElement );
 
 const controls = new THREE.OrbitControls( camera, renderer.domElement );
 controls.update();
+
+const texture = new THREE.TextureLoader().load( 'textures/BlueSkySkybox.png' );
+
+texture.mapping = THREE.EquirectangularReflectionMapping;
+
+scene.background = texture;
+
 const cubeTexture1 = new THREE.TextureLoader().load( 'textures/chodnik.jpg' );
   cubeTexture1.wrapS = THREE.RepeatWrapping;
   cubeTexture1.wrapT = THREE.RepeatWrapping;
