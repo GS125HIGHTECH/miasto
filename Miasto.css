@@ -60,7 +60,7 @@ input[type="button"]:active {
 	top: 20px;
 	width: 100%;
 	text-align: center;
-	z-index: 100;
+	z-index: 0;
 	display:block;
   font-weight: bold;
   font-size: 20px;
